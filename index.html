@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ADEX Vision</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-label="ADEX Logo"></div>
+      <div class="brand-text">ADEX</div>
+    </div>
+
+    <nav class="nav">
+      <a href="#store" class="nav-link active">Store</a>
+      <a href="#news" class="nav-link">News</a>
+      <a href="#battlepass" class="nav-link">Battle Pass</a>
+      <a href="#packs" class="nav-link">Packs</a>
+      <a href="#xcoin" class="nav-link">X-Coin</a>
+      <a href="#login" class="nav-link nav-cta">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="store" class="panel">
+      <h1>Store</h1>
+      <p>Coming soon — ADEX Vision store UI.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">Starter Pack</div>
+          <div class="card-sub">Best value</div>
+          <button class="btn">View</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Battle Pass</div>
+          <div class="card-sub">Season rewards</div>
+          <button class="btn">View</button>
+        </div>
+
+        <div class="card">
+          <div class="card-title">X-Coin</div>
+          <div class="card-sub">Top up</div>
+          <button class="btn">View</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="panel">
+      <h2>News</h2>
+      <p>Patch notes, announcements, updates.</p>
+    </section>
+
+    <section id="battlepass" class="panel">
+      <h2>Battle Pass</h2>
+      <p>Season progression (UI first, logic later).</p>
+    </section>
+
+    <section id="packs" class="panel">
+      <h2>Packs</h2>
+      <p>Bundles, starter packs, limited offers.</p>
+    </section>
+
+    <section id="xcoin" class="panel">
+      <h2>X-Coin</h2>
+      <p>Coin packages (no payments yet).</p>
+    </section>
+
+    <section id="login" class="panel">
+      <h2>Login</h2>
+      <p>UI only for now.</p>
+
+      <div class="login-box">
+        <input class="input" placeholder="Email" />
+        <input class="input" type="password" placeholder="Password" />
+        <button class="btn btn-wide">Login</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© <span id="y"></span> ADEX Vision</div>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
