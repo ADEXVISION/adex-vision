@@ -44,6 +44,15 @@
 
   <a href="#">Support / Kundendienst</a>
 </aside>
+  <script>
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("sideMenu");
+
+  burger.onclick = () => {
+    menu.style.left = menu.style.left === "0px" ? "-260px" : "0px";
+  };
+</script>
+
 <body>
   <header class="topbar">
     <div class="brand">
