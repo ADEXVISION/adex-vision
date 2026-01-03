@@ -409,9 +409,10 @@ body{
 .center-nav{
   display:flex;
   justify-content:center;
+  align-items:center;
   gap:90px;
+  justify-self:center; /* 👈 DAS ist der Schlüssel */
 }
-
 
 @media (max-width:1200px){
   .center-nav{
@@ -1090,9 +1091,11 @@ main{
     font-size:28px;
   }
 
-  .right{
-    margin-left:auto;
-  }
+.right{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+}
 
   /* Content */
   main{
@@ -1130,6 +1133,7 @@ main{
   }
 }
 
+
 </style>
 
 </head>
@@ -1148,14 +1152,15 @@ main{
   </div>
 
 
-  <nav class="center-nav">
-<a data-i18n="store" class="active" onclick="showSection('store',this)">Store</a>
-<a data-i18n="news" onclick="showSection('news',this)">News</a>
-<a data-i18n="battle" onclick="showSection('battle',this)">Battle Pass</a>
-<a data-i18n="packs" onclick="showSection('packs',this)">Packs</a>
-<a data-i18n="xcoin" onclick="showSection('xcoin',this)">X-Coin</a>
-<a data-i18n="support" onclick="showSection('support',this)">Support</a>
-  </nav>
+<nav class="center-nav">
+  <a data-i18n="store" class="active" onclick="showSection('store',this)">Store</a>
+  <a data-i18n="news" onclick="showSection('news',this)">News</a>
+  <a data-i18n="battle" onclick="showSection('battle',this)">Battle Pass</a>
+  <a data-i18n="packs" onclick="showSection('packs',this)">Packs</a>
+  <a data-i18n="xcoin" onclick="showSection('xcoin',this)">X-Coin</a>
+  <a data-i18n="support" onclick="showSection('support',this)">Support</a>
+</nav>
+
 
 <div class="right" id="accountArea">
 
@@ -1971,14 +1976,5 @@ document.addEventListener("click", e => {
 
 </body>
 </html> 
-
-
-
-
-
-
-
-
-
 
 
