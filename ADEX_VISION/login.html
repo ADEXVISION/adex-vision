@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ADEX VISION – Sign In</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  height:100vh;
+  background:#000;
+  color:#fff;
+  overflow:hidden;
+}
+.page{display:flex;height:100%}
+
+/* LEFT */
+.login-wrapper{
+  width:40%;
+  display:flex;
+  align-items:center;
+  margin-left:650px;
+}
+.login-box{width:420px}
+h1{font-size:80px;margin-bottom:18px;white-space:nowrap}
+p{margin-bottom:10px;font-size:18px}
+
+/* BLUE LINE */
+.blue-line{
+  width:100%;
+  height:2px;
+  background:#2563eb;
+  margin:10px 0 26px 0;
+  border-radius:2px;
+}
+
+/* INPUTS */
+.field{position:relative}
+input,select{
+  width:100%;
+  padding:14px 56px 14px 14px;
+  margin-bottom:22px;
+  background:#000;
+  border:1px solid #333;
+  border-radius:10px;
+  color:#fff;
+  font-size:15px;
+}
+input:focus,select:focus{outline:none;border-color:#2563eb}
+
+/* PASSWORD EYE */
+.toggle-password{
+  position:absolute;
+  right:16px;
+  top:35%;
+  transform:translateY(-50%);
+  width:26px;
+  height:26px;
+  cursor:pointer;
+}
+.toggle-password svg{
+  stroke:#fff;
+  stroke-width:2;
+  fill:none;
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  padding:14px;
+  background:#2563eb;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:bold;
+  color:#fff;
+  cursor:pointer;
+}
+button:hover{background:#1d4ed8}
+
+/* LINKS */
+.links{margin-top:18px;font-size:14px}
+.links a{color:#fff;text-decoration:none}
+.links a:hover{text-decoration:underline}
+.forgot{margin-top:12px}
+.forgot a{color:#60a5fa}
+
+/* STATUS */
+.status{
+  margin-top:14px;
+  font-size:13px;
+  opacity:.85;
+}
+
+/* RIGHT LOGO */
+.logo-wrapper{
+  width:60%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-left:-750px;
+}
+.logo-wrapper img{
+  width:1500px;
+}
+
+/* BOTTOM */
+.bottom-info{
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+}
+
+/* LANGUAGE SELECTOR */
+.language-selector{
+  position:relative;
+  display:inline-block;
+  cursor:pointer;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.language-menu{
+  display:none;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:26px;
+  background:#000;
+  border:1px solid #333;
+  border-radius:8px;
+  padding:8px;
+  min-width:240px;
+  z-index:10;
+}
+
+.language-menu div{
+  padding:6px 10px;
+  font-size:13px;
+}
+.language-menu div:hover{
+  background:#111;
+}
+
+.security{opacity:.75;margin-bottom:12px}
+.footer{font-size:30px;opacity:.85}
+
+/* VIEWS */
+.view{display:none}
+.view.active{display:block}
+
+/* ================= LOGIN TOP LEFT ================= */
+
+.login-top-left{
+  position:fixed;
+  top:26px;
+  left:24px;
+  z-index:1000;
+}
+
+/* Close X */
+.close-login{
+  font-size:22px;
+  color:#cfd6e1;
+  text-decoration:none;
+  opacity:.7;
+  transition:.25s;
+}
+.close-login:hover{
+  opacity:1;
+  color:#fff;
+  transform:scale(1.15);
+}
+
+/* Back to Store (unten im Login) */
+.back-store-inline{
+  display:inline-block;
+  margin-top:18px;
+  font-size:14px;
+  color:#60a5fa;
+  text-decoration:none;
+  opacity:.9;
+  transition:.25s;
+}
+.back-store-inline:hover{
+  text-decoration:underline;
+  opacity:1;
+}
+
+/* Back to Store */
+.back-store{
+  font-size:14px;
+  color:#cfd6e1;
+  text-decoration:none;
+  opacity:.85;
+  transition:.25s;
+}
+.back-store:hover{
+  opacity:1;
+  color:#60a5fa;
+  transform:translateX(-4px);
+}
+
+/* Close X */
+.close-login{
+  font-size:22px;
+  color:#cfd6e1;
+  text-decoration:none;
+  opacity:.7;
+  transition:.25s;
+}
+.close-login:hover{
+  opacity:1;
+  color:#fff;
+  transform:scale(1.15);
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- TOP LEFT CLOSE -->
+<div class="login-top-left">
+  <a href="index.html#store" class="close-login">✕</a>
+</div>
+
+
+<div class="page">
+
+  <div class="login-wrapper">
+    <div class="login-box">
+
+      <!-- LOGIN -->
+      <div id="loginView" class="view active">
+        <h1>ADEXVISION</h1>
+        <p>Sign in to your ADEX VISION account</p>
+        
+<div class="blue-line"></div>
+
+
+
+  
+
+        <input type="email" id="loginEmail" placeholder="Email Address">
+
+        <div class="field">
+          <input type="password" id="password" placeholder="Password">
+        <button onclick="fakeLogin()">Sign In</button>  
+          <span class="toggle-password" id="togglePassword">
+            <svg id="eyeOpen" viewBox="0 0 24 24">
+              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <svg id="eyeClosed" viewBox="0 0 24 24" style="display:none">
+              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+              <line x1="3" y1="3" x2="21" y2="21"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="forgot">
+          <a href="#" onclick="showView('forgotView');return false;">Forgot password?</a>
+        </div>
+
+        <div class="links">
+          <p><a href="#" onclick="showView('forgotView');return false;">Need help signing in?</a></p>
+          <p><a href="#" onclick="showView('signupView');return false;">Have an ADEX VISION account? Sign Up</a></p>
+        </div>
+      </div>
+
+      <!-- FORGOT -->
+      <div id="forgotView" class="view">
+        <h1>ADEXVISION</h1>
+        <p>Enter the email address associated with your ADEX VISION account</p>
+        <input type="email" id="forgotEmail" placeholder="Email Address">
+        <button id="resetBtn" onclick="fakeReset()">Send reset link</button>
+        <div class="status" id="forgotStatus" style="display:none;">
+          If an account exists for this email, we’ll send a password reset link.
+        </div>
+        <div class="links">
+          <p><a href="#" onclick="showView('loginView');return false;">Already have an account? Sign In</a></p>
+        </div>
+      </div>
+<a href="index.html#store" class="back-store-inline">
+  ← Back to Store
+</a>
+
+      <!-- SIGN UP -->
+      <div id="signupView" class="view">
+        <h1>ADEXVISION</h1>
+        <p>Create your account</p>
+
+        <select id="month">
+          <option value="">Month</option>
+          <option>January</option><option>February</option><option>March</option>
+          <option>April</option><option>May</option><option>June</option>
+          <option>July</option><option>August</option><option>September</option>
+          <option>October</option><option>November</option><option>December</option>
+        </select>
+
+        <select id="day"><option value="">Day</option></select>
+        <select id="year"><option value="">Year</option></select>
+
+        <select id="country">
+          <option value="">Country / Region</option>
+          <option>Germany</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>France</option>
+          <option>Spain</option>
+        </select>
+
+        <button id="nextBtn" onclick="fakeSignup()">Next</button>
+
+        <div class="status" id="signupStatus" style="display:none;">
+          Account creation is set up in the UI. (Email verification requires a backend.)
+        </div>
+
+        <div class="links">
+          <p><a href="#" onclick="showView('loginView');return false;">Already have an account? Sign In</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="logo-wrapper">
+    <img src="Logo1.png" alt="ADEX VISION Logo">
+  </div>
+
+</div>
+
+<div class="bottom-info">
+  <div class="language-selector">
+    🌐 <span id="currentLanguage">Selected region: English</span>
+    <div class="language-menu" id="languageMenu">
+      <div onclick="setLanguage('English')">English</div>
+      <div onclick="setLanguage('Deutsch')">Deutsch</div>
+      <div onclick="setLanguage('Français')">Français</div>
+      <div onclick="setLanguage('Español')">Español</div>
+    </div>
+  </div>
+
+  <div class="security">🔒 Your data is encrypted and securely transmitted</div>
+  <div class="footer">© 2025 ADEX VISION Studios</div>
+</div>
+
+<script>
+function showView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+/* Populate Day + Year */
+(function(){
+  const d=document.getElementById('day');
+  const y=document.getElementById('year');
+  for(let i=1;i<=31;i++)d.innerHTML+=`<option>${i}</option>`;
+  for(let i=2025;i>=1900;i--)y.innerHTML+=`<option>${i}</option>`;
+})();
+
+/* PASSWORD TOGGLE */
+const t=document.getElementById("togglePassword");
+const p=document.getElementById("password");
+const eo=document.getElementById("eyeOpen");
+const ec=document.getElementById("eyeClosed");
+t.onclick=()=>{
+  if(p.type==="password"){p.type="text";eo.style.display="none";ec.style.display="block";}
+  else{p.type="password";eo.style.display="block";ec.style.display="none";}
+};
+
+/* LANGUAGE DROPDOWN */
+const ls=document.querySelector('.language-selector');
+const lm=document.getElementById('languageMenu');
+const cl=document.getElementById('currentLanguage');
+ls.onclick=()=>lm.style.display=lm.style.display==='block'?'none':'block';
+function setLanguage(l){cl.textContent='Selected region: '+l;lm.style.display='none';}
+document.addEventListener('click',e=>{if(!ls.contains(e.target))lm.style.display='none';});
+
+/* Fake actions */
+function fakeLogin(){
+  localStorage.setItem("adex_user", JSON.stringify({
+    username: "PlayerOne",
+    avatar: "avatar.png",
+    coins: 1240,
+    battlePassLevel: 17
+  }));
+
+  window.location.href = "index.html";
+}
+function fakeReset(){document.getElementById('forgotStatus').style.display='block'}
+function fakeSignup(){document.getElementById('signupStatus').style.display='block'}
+
+window.addEventListener("load", () => {
+  if (window.location.hash === "#store") {
+    showSection("store", document.querySelector(".center-nav a[data-i18n='store']"));
+  }
+});
+
+
+</script>
+
+</body>
+</html>  
