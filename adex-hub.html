@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ADEX VISION – Social Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+.logo{
+  transition:.3s;
+}
+.logo:hover{
+  transform:translateY(-4px);
+  filter:drop-shadow(0 0 25px rgba(250,204,21,.6));
+}
+
+.hub-title{
+  font-size:64px;
+  letter-spacing:4px;
+  margin-bottom:20px;
+  transition:.3s;
+}
+.hub-title:hover{
+  color:#facc15;
+}
+
+.hub-subtitle{
+  font-size:20px;
+  line-height:1.7;
+  opacity:.85;
+  max-width:600px;
+  margin:0 auto 70px;
+}
+
+body{
+  background:#0b0f14;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  margin:0;
+}
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:100px 30px;
+  text-align:center;
+}
+
+.logo{
+  width:180px;
+  margin-bottom:30px;
+}
+
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:30px;
+}
+
+.social-card{
+  background:#0e141b;
+  border:1px solid #1f2937;
+  border-radius:18px;
+  padding:30px;
+  transition:.3s;
+}
+
+.social-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 30px rgba(59,130,246,.35);
+}
+
+.social-card a{
+  color:#fff;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:600;
+}
+
+/* BACK TO STORE */
+.back-store{
+  display:inline-block;
+  margin-top:80px;
+  font-size:20px;
+  font-weight:600;
+  text-decoration:none;
+  color:#3b82f6;
+  transition:.25s;
+}
+
+.back-store:hover{
+  color:#60a5fa;
+  transform:translateX(-6px);
+  text-shadow:0 0 12px rgba(59,130,246,.6);
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<img src="Logo1.png" class="logo" alt="ADEX VISION">
+
+<h1 class="hub-title">ADEX VISION</h1>
+
+<p class="hub-subtitle">
+  The official social hub of ADEX Vision.<br>
+  Follow us across all platforms, get updates and join the community.
+</p>
+
+<div class="social-grid">
+  <div class="social-card">
+    <a href="https://www.youtube.com" target="_blank">YouTube</a>
+  </div>
+  <div class="social-card">
+    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+  </div>
+  <div class="social-card">
+    <a href="https://www.tiktok.com" target="_blank">TikTok</a>
+  </div>
+  <div class="social-card">
+    <a href="https://discord.gg/rZXMmw2w" target="_blank">Discord</a>
+  </div>
+</div>
+
+<a href="index.html#store" class="back-store">
+  ← Back to Store
+</a>
+
+</main>
+</body>
+</html>
