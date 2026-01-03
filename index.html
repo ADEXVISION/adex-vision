@@ -6,7 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-  
+
+.center-nav{
+  display:flex;
+}
 .account{
   position:relative;
 }
@@ -380,6 +383,7 @@ body{
 /* ================= HEADER ================= */
 
 .topbar{
+  position:relative; /* 👈 WICHTIG */
   display:grid;
   grid-template-columns:auto 1fr auto;
   align-items:center;
@@ -387,6 +391,7 @@ body{
   background:#0e141b;
   border-bottom:1px solid #1f2937;
 }
+
 
 /* LEFT */
 .left{display:flex;align-items:center}
@@ -401,12 +406,17 @@ body{
   margin-left:56px;
 }
 
-/* CENTER NAV */
 .center-nav{
   display:flex;
   justify-content:center;
   gap:90px;
-  margin-left:-450px;
+}
+
+
+@media (max-width:1200px){
+  .center-nav{
+    gap:40px;
+  }
 }
 
 .center-nav a{
@@ -598,6 +608,7 @@ main{
   margin-top:40px;
 }
 
+/* BASIS */
 .pack-row{
   display:grid;
   grid-template-columns:420px 1fr;
@@ -609,10 +620,13 @@ main{
   padding:30px;
 }
 
-.pack-row img{
-  width:100%;
-  border-radius:12px;
+/* MOBILE */
+@media (max-width:768px){
+  .pack-row{
+    grid-template-columns:1fr;
+  }
 }
+
 
 .pack-info h3{
   font-size:32px;
@@ -1014,6 +1028,106 @@ main{
 
 .brand-link:hover .brand{
   color:#facc15;
+}
+
+
+
+@media (max-width: 768px){
+
+  .pack-row{
+    grid-template-columns:1fr; /* untereinander */
+    gap:20px;
+  }
+
+  .pack-info h3{
+    font-size:24px;
+  }
+
+  .pack-info .price{
+    font-size:22px;
+  }
+}
+@media (max-width: 768px){
+
+  main{
+    padding:30px 16px;
+  }
+
+  .section{
+    padding:20px;
+  }
+}
+
+@media (max-width: 768px){
+  .brand{
+    display:none; /* nur Logo zeigen */
+  }
+}
+/* ================= MOBILE NAV FIX ================= */
+@media (max-width:768px){
+
+  .topbar{
+    display:flex;
+    align-items:center;
+  }
+
+  /* Desktop-Navigation AUS */
+  .center-nav{
+    display:none;
+  }
+
+  /* Mobile Layout */
+  .brand{
+    display:none;
+  }
+
+  .logo{
+    height:48px;
+    margin-left:10px;
+  }
+
+  .burger{
+    font-size:28px;
+  }
+
+  .right{
+    margin-left:auto;
+  }
+
+  /* Content */
+  main{
+    padding:30px 16px;
+  }
+
+  .section{
+    padding:20px;
+  }
+
+  .pack-row{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .pack-info h3{
+    font-size:24px;
+  }
+
+  .pack-info .price{
+    font-size:22px;
+  }
+
+  #xcoin img{
+    width:100%;
+    max-width:320px;
+    margin:auto;
+    display:block;
+  }
+}
+
+@media (max-width:1400px){
+  .center-nav{
+    gap:48px;
+  }
 }
 
 </style>
@@ -1857,4 +1971,5 @@ document.addEventListener("click", e => {
 
 </body>
 </html> 
+
 
