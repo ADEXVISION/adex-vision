@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-  
+
 .account{
   position:relative;
 }
@@ -965,8 +965,14 @@ main{
 /* ================= EMAIL BUTTON MICRO ALIGN FIX ================= */
 @media (max-width:768px){
   #support .store-feature-card a[href^="mailto"]{
-    position:relative;
-    left:-12px;   /* ≈ 1–1.5 cm nach links */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:16px 20px;   /* weniger seitliches Padding */
+    text-indent:-12px;  /* 👈 TEXT nach links ziehen */
+    word-break:break-all;
+    text-align:center;
   }
 }
 
@@ -1310,13 +1316,13 @@ main{
   </div>
 
   <div class="store-actions">
-    <a onclick="showSection('battle', this)" class="store-action">
+    <a href="javascript:void(0)" onclick="showSection('battle', this)" class="store-action">
       Battle Pass
     </a>
-    <a onclick="showSection('packs', this)" class="store-action">
+    <a href="javascript:void(0)" onclick="showSection('packs', this)" class="store-action">
       Browse Packs
     </a>
-    <a onclick="showSection('xcoin', this)" class="store-action">
+    <a href="javascript:void(0)" onclick="showSection('xcoin', this)" class="store-action">
       Get X-Coins
     </a>
   </div>
@@ -1374,7 +1380,7 @@ main{
       <p>Become part of ADEX Vision.</p>
     </a>
 
-    <a onclick="showSection('news', this)" class="store-extra">
+   <a href="javascript:void(0)" onclick="showSection('news', this)" class="store-extra">
       <h4 data-i18n="stay_updated">Stay Updated</h4>
       <p>Latest news, updates and announcements.</p>
     </a>
@@ -1539,6 +1545,7 @@ main{
 </div>
 
 <div class="compare-box" style="margin-top:60px;">
+  </div>
   <h3 style="font-size:32px; margin-bottom:20px;">
     Compare Versions
   </h3>
@@ -1587,10 +1594,11 @@ main{
       <td>From 1,400 X-Coins</td>
     </tr>
   </table>
-</div>
-
+</div> <!-- compare-box -->
+</div> <!-- 🔥 ENDE battle section -->
 
 <div id="packs" class="section">
+
 
   <h2>Starter Packs</h2>
 
@@ -1705,16 +1713,11 @@ main{
     </div>
   </div>
 
-</div>
-
-    </div>
-  </div>
-
-
-</div>
-
+</div> <!-- 🔥 ENDE packs-list -->
+</div> <!-- 🔥 ENDE packs section -->
 
 <div id="xcoin" class="section">
+
 
   <img src="XCoin.png" alt="XCoin Logo" style="width:800px;margin-bottom:80px;">
 
@@ -1961,15 +1964,25 @@ closeMenu.onclick=toggleMenu;
 overlay.onclick=toggleMenu;
 platformToggle.onclick=()=>platformList.classList.toggle("open");
 
-function showSection(id,el){
+function showSection(id, el){
   sideMenu.classList.remove("open");
-overlay.classList.remove("active");
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  overlay.classList.remove("active");
+
+  // Sections umschalten
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById(id);
+  if(target) target.classList.add('active');
+
+  // Navigation reset
   document.querySelectorAll('.center-nav a, .side-menu a')
-  .forEach(a => a.classList.remove('active'));
-  el.classList.add('active');
+    .forEach(a => a.classList.remove('active'));
+
+  // Nur echte Nav-Links aktivieren
+  if(el && el.tagName === "A" && el.closest(".center-nav, .side-menu")){
+    el.classList.add('active');
+  }
 }
+
 // OPEN SECTION FROM URL HASH (e.g. #packs, #xcoin)
 window.addEventListener("load", () => {
   const hash = window.location.hash.replace("#", "");
@@ -2064,4 +2077,6 @@ document.addEventListener("click", e => {
 
 </body>
 </html> 
+
+
 
