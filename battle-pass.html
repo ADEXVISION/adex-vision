@@ -318,6 +318,73 @@ table td:first-child{
   opacity:.75;
 }
 
+/* ================= HERO MOBILE FIX ================= */
+@media (max-width:768px){
+  .hero-banner{
+    min-height:60vh;
+  }
+
+  .hero-banner img{
+    object-fit:contain;
+    object-position:center;
+  }
+
+  .hero-overlay{
+    padding-bottom:140px;
+  }
+}
+
+/* ================= COMPARE RESPONSIVE FIX ================= */
+
+@media (max-width:768px){
+
+  .compare-box{
+    padding:24px;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr{
+    display:block;
+    width:100%;
+  }
+
+  thead{
+    display:none;
+  }
+
+  tr{
+    margin-bottom:22px;
+    border:1px solid #1f2937;
+    border-radius:14px;
+    overflow:hidden;
+  }
+
+  td{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 18px;
+    text-align:right;
+    border:none;
+    border-bottom:1px solid #1f2937;
+    font-size:15px;
+  }
+
+  td:last-child{
+    border-bottom:none;
+  }
+
+  td::before{
+    content:attr(data-label);
+    font-weight:600;
+    color:#cbd5f5;
+    text-align:left;
+  }
+}
+
 </style>
 </head>
 
@@ -375,44 +442,54 @@ table td:first-child{
     Bundles include Battle Pass plus exclusive Bronze, Silver or Gold content.
   </p>
 
-  <table>
+<table>
+  <thead>
     <tr>
       <th>Features</th>
       <th>Free</th>
       <th>Battle Pass</th>
       <th>Bundles</th>
     </tr>
+  </thead>
+
+  <tbody>
     <tr>
-      <td>Cosmetics & Skins</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
+      <td data-label="Features">Cosmetics & Skins</td>
+      <td data-label="Free">✓</td>
+      <td data-label="Battle Pass">✓</td>
+      <td data-label="Bundles">✓</td>
     </tr>
+
     <tr>
-      <td>XP Boosts</td>
-      <td>–</td>
-      <td>✓</td>
-      <td>✓</td>
+      <td data-label="Features">XP Boosts</td>
+      <td data-label="Free">–</td>
+      <td data-label="Battle Pass">✓</td>
+      <td data-label="Bundles">✓</td>
     </tr>
+
     <tr>
-      <td>X-Coins</td>
-      <td>500</td>
-      <td>1,000</td>
-      <td>1,400 – 1,800</td>
+      <td data-label="Features">X-Coins</td>
+      <td data-label="Free">500</td>
+      <td data-label="Battle Pass">1,000</td>
+      <td data-label="Bundles">1,400 – 1,800</td>
     </tr>
+
     <tr>
-      <td>Exclusive Bundles</td>
-      <td>–</td>
-      <td>–</td>
-      <td>Bronze / Silver / Gold</td>
+      <td data-label="Features">Exclusive Bundles</td>
+      <td data-label="Free">–</td>
+      <td data-label="Battle Pass">–</td>
+      <td data-label="Bundles">Bronze / Silver / Gold</td>
     </tr>
+
     <tr>
-      <td>Price</td>
-      <td>Free</td>
-      <td>1,000 X-Coins</td>
-      <td>From 1,400 X-Coins</td>
+      <td data-label="Features">Price</td>
+      <td data-label="Free">Free</td>
+      <td data-label="Battle Pass">1,000 X-Coins</td>
+      <td data-label="Bundles">From 1,400 X-Coins</td>
     </tr>
-  </table>
+  </tbody>
+</table>
+
 </div>
 
 <!-- BUY -->
@@ -426,6 +503,10 @@ table td:first-child{
 
   <button class="buy" onclick="openModal()">Unlock Battle Pass</button>
 </div>
+
+<a href="index.html#battle" class="back">
+  ← Back to Battle Pass
+</a>
 
 </main>
 
@@ -449,4 +530,3 @@ function closeModal(){
 </body>
 
 </html>
-
