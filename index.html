@@ -6,10 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
-.center-nav{
-  display:flex;
-}
+  
 .account{
   position:relative;
 }
@@ -965,6 +962,14 @@ main{
   }
 }
 
+/* ================= EMAIL BUTTON MICRO ALIGN FIX ================= */
+@media (max-width:768px){
+  #support .store-feature-card a[href^="mailto"]{
+    position:relative;
+    left:-12px;   /* ≈ 1–1.5 cm nach links */
+  }
+}
+
 /* ================= SUPPORT SPACING ================= */
 
 #support .store-feature-card h3{
@@ -1536,11 +1541,10 @@ main{
 <div class="compare-box" style="margin-top:60px;">
   <h3 style="font-size:32px; margin-bottom:20px;">
     Compare Versions
-</div>
-
   </h3>
 
   <table>
+
     <tr>
       <th>Features</th>
       <th>Free</th>
