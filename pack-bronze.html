@@ -6,11 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
 body{
   background:#0b0f14;
   color:#fff;
   font-family:Arial,Helvetica,sans-serif;
   padding:60px;
+}
+
+/* ✅ Handy padding kleiner */
+@media (max-width:768px){
+  body{
+    padding:22px;
+  }
 }
 
 .pack-header{
@@ -37,6 +45,19 @@ body{
 .bundle-row{
   display:grid;
   grid-template-columns:2fr 1fr 1fr 1fr;
+}
+
+/* ✅ MOBILE FIX: Tabelle nicht abschneiden */
+@media (max-width: 768px){
+  .bundle-compare{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .bundle-header,
+  .bundle-row{
+    min-width:700px;  /* sorgt dafür, dass man horizontal scrollen kann */
+  }
 }
 
 .bundle-header{
@@ -86,6 +107,17 @@ body{
   grid-template-columns:2fr 1fr 1fr 1fr;
   margin-top:30px;
   align-items:center;
+}
+
+/* ✅ MOBILE: Buttons untereinander */
+@media (max-width:768px){
+  .buy-row{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .buy-row > div{
+    display:none; /* das leere Feld weg */
+  }
 }
 
 .buy{
