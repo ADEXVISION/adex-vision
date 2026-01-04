@@ -21,9 +21,31 @@ body{
 .hero-banner{
   position:relative;
   width:100%;
-  height:1400px;
+  min-height:70vh;
+  max-height:900px;
   overflow:hidden;
-  border-bottom:1px solid #1f2937;
+}
+
+/* ================= HERO RESPONSIVE ================= */
+
+@media (max-width:1024px){
+  .hero-overlay h1{font-size:110px}
+  .hero-overlay h2{font-size:56px}
+}
+
+@media (max-width:768px){
+  .hero-overlay{
+    padding-bottom:180px;
+  }
+
+  .hero-overlay h1{
+    font-size:64px;
+    letter-spacing:2px;
+  }
+
+  .hero-overlay h2{
+    font-size:32px;
+  }
 }
 
 /* IMAGE */
@@ -68,6 +90,13 @@ body{
     rgba(2,6,23,.15)
   );
 }
+
+@media (max-width:900px){
+  .hero-overlay{
+    padding-bottom:240px;
+  }
+}
+
 
 .hero-overlay h1{
   font-size:180px;
@@ -181,11 +210,6 @@ table td:first-child{
   text-align:center;
 }
 
-.price{
-  font-size:46px;
-  font-weight:900;
-}
-
 .buy{
   margin-top:28px;
   padding:18px 64px;
@@ -248,6 +272,52 @@ table td:first-child{
 }
 .ui-modal-box button:hover{background:#1d4ed8}
 
+.price{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  font-weight:900;
+}
+
+
+.bp-title{
+  font-size:32px;
+  font-weight:800;
+}
+
+.bp-price{
+  font-size:26px;
+  font-weight:700;
+  color:#facc15;
+}
+
+/* Mobile Feinschliff */
+@media (max-width:768px){
+  .bp-title{font-size:26px}
+  .bp-price{font-size:22px}
+}
+
+.compare-box{
+  background:#0e141b;
+  border:1px solid #1f2937;
+  border-radius:24px;
+  padding:50px;
+  margin-top:80px;
+}
+
+.compare-box h2{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.compare-note{
+  text-align:center;
+  margin-top:30px;
+  font-size:16px;
+  opacity:.75;
+}
+
 </style>
 </head>
 
@@ -297,90 +367,67 @@ table td:first-child{
     </div>
   </div>
 
-  <!-- COMPARE -->
- <h2 style="margin-top:80px;">Compare Versions</h2>
+<!-- COMPARE -->
+<div class="section compare-box">
+  <h2>Compare Versions</h2>
 
-<table>
-  <tr>
-    <th>Features</th>
-    <th>Free</th>
-    <th>Battle Pass</th>
-    <th>Bundles</th>
-  </tr>
-
-  <tr>
-    <td>Cosmetics & Skins</td>
-    <td>✓</td>
-    <td>✓</td>
-    <td>✓</td>
-  </tr>
-
-  <tr>
-    <td>XP Boosts</td>
-    <td>–</td>
-    <td>✓</td>
-    <td>✓</td>
-  </tr>
-
-  <tr>
-    <td>X-Coins</td>
-    <td>500</td>
-    <td>1,000</td>
-    <td>1,400 – 1,800</td>
-  </tr>
-
-  <tr>
-    <td>Exclusive Bundles</td>
-    <td>–</td>
-    <td>–</td>
-    <td>Bronze / Silver / Gold</td>
-  </tr>
-
-  <tr>
-    <td>Price</td>
-    <td>Free</td>
-    <td>1,000 X-Coins</td>
-    <td>From 1,400 X-Coins</td>
-  </tr>
-</table>
-
-<div class="section" style="margin-top:10px;">
-
-  <p style="text-align:center; color:#ffffff; font-size:20px; margin-bottom:60px;">
+  <p class="compare-note">
     Bundles include Battle Pass plus exclusive Bronze, Silver or Gold content.
   </p>
 
-  <!-- BUY -->
-  <div class="section">
-    <div class="buy-box">
-    <div class="price">Battle Pass – 1,000 X-Coins</div>
-    <p style="margin-top:12px; color:#cbd5f5; font-size:16px;">
-Includes premium rewards and enough X-Coins to unlock the next season.
-</p>
-<button class="buy" onclick="openModal()">Unlock Battle Pass</button>
-    </div>
-  </div>
+  <table>
+    <tr>
+      <th>Features</th>
+      <th>Free</th>
+      <th>Battle Pass</th>
+      <th>Bundles</th>
+    </tr>
+    <tr>
+      <td>Cosmetics & Skins</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>XP Boosts</td>
+      <td>–</td>
+      <td>✓</td>
+      <td>✓</td>
+    </tr>
+    <tr>
+      <td>X-Coins</td>
+      <td>500</td>
+      <td>1,000</td>
+      <td>1,400 – 1,800</td>
+    </tr>
+    <tr>
+      <td>Exclusive Bundles</td>
+      <td>–</td>
+      <td>–</td>
+      <td>Bronze / Silver / Gold</td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td>Free</td>
+      <td>1,000 X-Coins</td>
+      <td>From 1,400 X-Coins</td>
+    </tr>
+  </table>
+</div>
 
-<a href="index.html#battle" class="back" style="margin-top:140px;">
-  ← Back to Battle Pass
-</a>
+<!-- BUY -->
+<div class="buy-box">
+  <span class="bp-title">Battle Pass</span>
+  <span class="bp-price">1,000 X-Coins</span>
 
+  <p style="margin-top:12px; color:#cbd5f5; font-size:16px;">
+    Includes premium rewards and enough X-Coins to unlock the next season.
+  </p>
+
+  <button class="buy" onclick="openModal()">Unlock Battle Pass</button>
+</div>
 
 </main>
-<script>
-function openModal(){
-  const modal = document.getElementById("ui-modal");
-  if(modal){
-    modal.classList.add("show");
-  } else {
-    console.error("Modal not found");
-  }
-}
-
-function closeModal(){
-  document.getElementById("ui-modal").classList.remove("show");
-}
-</script>
 
 <div id="ui-modal" class="ui-modal" onclick="closeModal()">
   <div class="ui-modal-box" onclick="event.stopPropagation()">
@@ -402,3 +449,4 @@ function closeModal(){
 </body>
 
 </html>
+
